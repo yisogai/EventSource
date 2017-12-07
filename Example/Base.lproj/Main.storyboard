@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,6 +14,10 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Rr-aB-JSI"/>
+                        <viewControllerLayoutGuide type="bottom" id="ylR-vN-YLl"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,17 +67,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3Jz-rO-9ZS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="B1F-g9-zUC"/>
-                            <constraint firstItem="hup-rM-NjK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="I1l-Ri-J01"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hup-rM-NjK" secondAttribute="trailing" id="apS-IW-gSN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Jz-rO-9ZS" secondAttribute="bottom" id="fRB-k3-2yp"/>
-                            <constraint firstItem="ipf-uh-l29" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kP5-aI-l14"/>
+                            <constraint firstItem="3Jz-rO-9ZS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="B1F-g9-zUC"/>
+                            <constraint firstItem="hup-rM-NjK" firstAttribute="top" secondItem="7Rr-aB-JSI" secondAttribute="bottom" id="I1l-Ri-J01"/>
+                            <constraint firstAttribute="trailing" secondItem="hup-rM-NjK" secondAttribute="trailing" id="apS-IW-gSN"/>
+                            <constraint firstItem="ylR-vN-YLl" firstAttribute="top" secondItem="3Jz-rO-9ZS" secondAttribute="bottom" id="fRB-k3-2yp"/>
+                            <constraint firstItem="ipf-uh-l29" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kP5-aI-l14"/>
                             <constraint firstItem="3Jz-rO-9ZS" firstAttribute="top" secondItem="ipf-uh-l29" secondAttribute="bottom" id="kbV-c3-0YC"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Jz-rO-9ZS" secondAttribute="trailing" id="pcR-9E-UgW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ipf-uh-l29" secondAttribute="trailing" id="qgm-jH-46L"/>
-                            <constraint firstItem="ipf-uh-l29" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wS9-rU-Qtw"/>
+                            <constraint firstAttribute="trailing" secondItem="3Jz-rO-9ZS" secondAttribute="trailing" id="pcR-9E-UgW"/>
+                            <constraint firstAttribute="trailing" secondItem="ipf-uh-l29" secondAttribute="trailing" id="qgm-jH-46L"/>
+                            <constraint firstItem="ipf-uh-l29" firstAttribute="top" secondItem="7Rr-aB-JSI" secondAttribute="bottom" id="wS9-rU-Qtw"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="readyStateLabel" destination="ipf-uh-l29" id="29Q-Ck-TtM"/>
