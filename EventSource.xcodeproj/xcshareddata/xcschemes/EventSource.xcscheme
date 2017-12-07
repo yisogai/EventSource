@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "344D27961FA990C900AE9F4B"
                BuildableName = "EventSource.framework"
-               BlueprintName = "EventSource"
+               BlueprintName = "EventSource-iOS"
                ReferencedContainer = "container:EventSource.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,7 +45,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "344D27961FA990C900AE9F4B"
             BuildableName = "EventSource.framework"
-            BlueprintName = "EventSource"
+            BlueprintName = "EventSource-iOS"
             ReferencedContainer = "container:EventSource.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -68,7 +68,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "344D27961FA990C900AE9F4B"
             BuildableName = "EventSource.framework"
-            BlueprintName = "EventSource"
+            BlueprintName = "EventSource-iOS"
             ReferencedContainer = "container:EventSource.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -86,7 +86,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "344D27961FA990C900AE9F4B"
             BuildableName = "EventSource.framework"
-            BlueprintName = "EventSource"
+            BlueprintName = "EventSource-iOS"
             ReferencedContainer = "container:EventSource.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

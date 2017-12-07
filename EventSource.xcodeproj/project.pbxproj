@@ -181,9 +181,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		344D27961FA990C900AE9F4B /* EventSource */ = {
+		344D27961FA990C900AE9F4B /* EventSource-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 344D27AB1FA990CA00AE9F4B /* Build configuration list for PBXNativeTarget "EventSource" */;
+			buildConfigurationList = 344D27AB1FA990CA00AE9F4B /* Build configuration list for PBXNativeTarget "EventSource-iOS" */;
 			buildPhases = (
 				344D27921FA990C900AE9F4B /* Sources */,
 				344D27931FA990C900AE9F4B /* Frameworks */,
@@ -194,7 +194,7 @@
 			);
 			dependencies = (
 			);
-			name = EventSource;
+			name = "EventSource-iOS";
 			productName = EventSource;
 			productReference = 344D27971FA990C900AE9F4B /* EventSource.framework */;
 			productType = "com.apple.product-type.framework";
@@ -275,7 +275,7 @@
 			projectRoot = "";
 			targets = (
 				344D27B41FA9910800AE9F4B /* Example */,
-				344D27961FA990C900AE9F4B /* EventSource */,
+				344D27961FA990C900AE9F4B /* EventSource-iOS */,
 				344D279F1FA990CA00AE9F4B /* EventSourceTests */,
 			);
 		};
@@ -343,12 +343,12 @@
 /* Begin PBXTargetDependency section */
 		344D27A31FA990CA00AE9F4B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 344D27961FA990C900AE9F4B /* EventSource */;
+			target = 344D27961FA990C900AE9F4B /* EventSource-iOS */;
 			targetProxy = 344D27A21FA990CA00AE9F4B /* PBXContainerItemProxy */;
 		};
 		3483EA6C1FD8CE5000C47495 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 344D27961FA990C900AE9F4B /* EventSource */;
+			target = 344D27961FA990C900AE9F4B /* EventSource-iOS */;
 			targetProxy = 3483EA6B1FD8CE5000C47495 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -501,7 +501,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yisogai.EventSource;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = EventSource;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -524,7 +524,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yisogai.EventSource;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = EventSource;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -605,7 +605,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		344D27AB1FA990CA00AE9F4B /* Build configuration list for PBXNativeTarget "EventSource" */ = {
+		344D27AB1FA990CA00AE9F4B /* Build configuration list for PBXNativeTarget "EventSource-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				344D27AC1FA990CA00AE9F4B /* Debug */,
