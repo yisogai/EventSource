@@ -54,7 +54,6 @@ internal class EventBuffer {
         }
         
         buffer.removeSubrange(Range.init(uncheckedBounds: (lower: 0, upper: searchRange.lowerBound)))
-        
         return events
     }
     
@@ -64,11 +63,11 @@ internal class EventBuffer {
         
         let regex = try! NSRegularExpression(pattern: "(.+?):\\s?(.*)", options: [])
         rawEvent.enumerateLines { line, _ in
+            let nsline = line as NSString
             if
-                let result = regex.firstMatch(in: line, options: [], range: NSRange(location: 0, length: line.count)),
+                let result = regex.firstMatch(in: line, options: [], range: NSRange(location: 0, length: nsline.length)),
                 result.numberOfRanges > 2 {
                 
-                let nsline = line as NSString
                 let key = nsline.substring(with: result.range(at: 1))
                 let value: String? = {
                     let value = nsline.substring(with: result.range(at: 2))
