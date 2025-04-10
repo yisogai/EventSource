@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		344D27A11FA990CA00AE9F4B /* EventSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344D27971FA990C900AE9F4B /* EventSource.framework */; };
-		3483EA691FD8CE5000C47495 /* EventSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 344D27971FA990C900AE9F4B /* EventSource.framework */; };
-		3483EA6A1FD8CE5000C47495 /* EventSource.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 344D27971FA990C900AE9F4B /* EventSource.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6161693A2DA77361000A0592 /* EventSource in Frameworks */ = {isa = PBXBuildFile; productRef = 616169392DA77361000A0592 /* EventSource */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,28 +19,7 @@
 			remoteGlobalIDString = 344D27961FA990C900AE9F4B;
 			remoteInfo = EventSource;
 		};
-		3483EA6B1FD8CE5000C47495 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 344D278E1FA990C900AE9F4B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 344D27961FA990C900AE9F4B;
-			remoteInfo = EventSource;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		3483EA6D1FD8CE5000C47495 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				3483EA6A1FD8CE5000C47495 /* EventSource.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		344D27971FA990C900AE9F4B /* EventSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EventSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3483EA691FD8CE5000C47495 /* EventSource.framework in Frameworks */,
+				6161693A2DA77361000A0592 /* EventSource in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,12 +166,10 @@
 				344D27B11FA9910800AE9F4B /* Sources */,
 				344D27B21FA9910800AE9F4B /* Frameworks */,
 				344D27B31FA9910800AE9F4B /* Resources */,
-				3483EA6D1FD8CE5000C47495 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3483EA6C1FD8CE5000C47495 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				61B11AE42DA761260031AD3E /* Example */,
@@ -238,6 +214,9 @@
 				Base,
 			);
 			mainGroup = 344D278D1FA990C900AE9F4B;
+			packageReferences = (
+				616169382DA77361000A0592 /* XCLocalSwiftPackageReference "../EventSource" */,
+			);
 			productRefGroup = 344D27981FA990C900AE9F4B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -302,11 +281,6 @@
 			isa = PBXTargetDependency;
 			target = 344D27961FA990C900AE9F4B /* EventSource-iOS */;
 			targetProxy = 344D27A21FA990CA00AE9F4B /* PBXContainerItemProxy */;
-		};
-		3483EA6C1FD8CE5000C47495 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 344D27961FA990C900AE9F4B /* EventSource-iOS */;
-			targetProxy = 3483EA6B1FD8CE5000C47495 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -608,6 +582,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		616169382DA77361000A0592 /* XCLocalSwiftPackageReference "../EventSource" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../EventSource;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		616169392DA77361000A0592 /* EventSource */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EventSource;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 344D278E1FA990C900AE9F4B /* Project object */;
 }
