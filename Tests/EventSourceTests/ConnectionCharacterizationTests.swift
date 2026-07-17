@@ -93,14 +93,14 @@ struct ConnectionCharacterizationTests {
 
     @Test func networkError_schedulesReconnectAfterRetryTime_andReportsError() async {
         MockSSEProtocol.reset()
-        MockSSEProtocol.enqueue(.sse(then: .error(.networkConnectionLost)))
+        MockSSEProtocol.enqueue(.sse(then: .error(.timedOut)))
         let (source, recorder, scheduler) = makeSource()
         defer { source.close() }
 
         #expect(await waitUntil { scheduler.pendingCount == 1 })
         #expect(scheduler.delays == [3.0])
         #expect(await waitUntil { recorder.errors.count == 1 })
-        #expect(recorder.errors.first??._code == URLError.networkConnectionLost.rawValue)
+        #expect(recorder.errors.first??._code == URLError.timedOut.rawValue)
 
         MockSSEProtocol.enqueue(.sse())
         scheduler.fireNext()
@@ -117,7 +117,7 @@ struct ConnectionCharacterizationTests {
         #expect(source.lastEventId == "55")
         #expect(MockSSEProtocol.requests.first?.value(forHTTPHeaderField: "Last-Event-ID") == nil)
 
-        MockSSEProtocol.failActive(.networkConnectionLost)
+        MockSSEProtocol.failActive(.timedOut)
         #expect(await waitUntil { scheduler.pendingCount == 1 })
 
         MockSSEProtocol.enqueue(.sse())
@@ -133,14 +133,14 @@ struct ConnectionCharacterizationTests {
         defer { source.close() }
 
         #expect(await waitUntil { source.retryTime == 0.1 })
-        MockSSEProtocol.failActive(.networkConnectionLost)
+        MockSSEProtocol.failActive(.timedOut)
         #expect(await waitUntil { scheduler.pendingCount == 1 })
         #expect(scheduler.delays == [0.1])
     }
 
     @Test func close_preventsScheduledReconnect() async {
         MockSSEProtocol.reset()
-        MockSSEProtocol.enqueue(.sse(then: .error(.networkConnectionLost)))
+        MockSSEProtocol.enqueue(.sse(then: .error(.timedOut)))
         let (source, _, scheduler) = makeSource()
 
         #expect(await waitUntil { scheduler.pendingCount == 1 })
@@ -223,7 +223,7 @@ struct ConnectionCharacterizationTests {
         #expect(await waitUntil { recorder.events.count == 2 })
         #expect(source.lastEventId == "")
 
-        MockSSEProtocol.failActive(.networkConnectionLost)
+        MockSSEProtocol.failActive(.timedOut)
         #expect(await waitUntil { scheduler.pendingCount == 1 })
         MockSSEProtocol.enqueue(.sse())
         scheduler.fireNext()

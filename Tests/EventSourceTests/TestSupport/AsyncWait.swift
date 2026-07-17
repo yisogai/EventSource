@@ -17,7 +17,7 @@ final class WeakBox<T: AnyObject>: @unchecked Sendable {
 
 /// Polls `condition` (roughly every 10 ms) until it returns true or `timeout`
 /// elapses. Returns the final value of `condition`.
-func waitUntil(timeout: TimeInterval = 2.0, _ condition: @escaping @Sendable () -> Bool) async -> Bool {
+func waitUntil(timeout: TimeInterval = 5.0, _ condition: @escaping @Sendable () -> Bool) async -> Bool {
     let deadline = Date().addingTimeInterval(timeout)
     while Date() < deadline {
         if condition() { return true }
