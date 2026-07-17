@@ -22,6 +22,11 @@ final class MockSSEProtocol: URLProtocol {
                         chunks: [String] = [],
                         then final: Step = .stayOpen) -> Script {
             var steps: [Step] = [.respond(status: status, headers: ["Content-Type": contentType])]
+            // Some iOS runtimes defer delivering the response to the delegate
+            // until the first body bytes arrive, so a body-less stayOpen
+            // script may never reach .open. A comment line (ignored by the
+            // parser) forces prompt delivery without affecting any events.
+            steps.append(.chunk(Data(": connected\n".utf8)))
             steps.append(contentsOf: chunks.map { .chunk(Data($0.utf8)) })
             steps.append(final)
             return Script(steps: steps)
