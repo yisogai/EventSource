@@ -1,5 +1,4 @@
-// swift-tools-version: 5.10
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version: 6.0
 
 import PackageDescription
 
@@ -7,6 +6,10 @@ let package = Package(
     name: "EventSource",
     platforms: [
         .iOS(.v15),
+        .macOS(.v12),
+        .tvOS(.v15),
+        .watchOS(.v8),
+        .visionOS(.v1),
     ],
     products: [
         .library(
@@ -18,6 +21,14 @@ let package = Package(
     targets: [
         .target(
             name: "EventSource",
-            path: "EventSource"),
+            swiftSettings: [
+                .swiftLanguageMode(.v6),
+            ]),
+        .testTarget(
+            name: "EventSourceTests",
+            dependencies: ["EventSource"],
+            swiftSettings: [
+                .swiftLanguageMode(.v6),
+            ]),
     ]
 )

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "344D27961FA990C900AE9F4B"
-               BuildableName = "EventSource.framework"
-               BlueprintName = "EventSource-iOS"
+               BlueprintIdentifier = "344D27B41FA9910800AE9F4B"
+               BuildableName = "Example.app"
+               BlueprintName = "Example"
                ReferencedContainer = "container:EventSource.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -27,26 +27,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "344D27961FA990C900AE9F4B"
-            BuildableName = "EventSource.framework"
-            BlueprintName = "EventSource-iOS"
-            ReferencedContainer = "container:EventSource.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "344D279F1FA990CA00AE9F4B"
-               BuildableName = "EventSourceTests.xctest"
-               BlueprintName = "EventSourceTests"
-               ReferencedContainer = "container:EventSource.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -59,15 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "344D27961FA990C900AE9F4B"
-            BuildableName = "EventSource.framework"
-            BlueprintName = "EventSource-iOS"
+            BlueprintIdentifier = "344D27B41FA9910800AE9F4B"
+            BuildableName = "Example.app"
+            BlueprintName = "Example"
             ReferencedContainer = "container:EventSource.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -75,15 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "344D27961FA990C900AE9F4B"
-            BuildableName = "EventSource.framework"
-            BlueprintName = "EventSource-iOS"
+            BlueprintIdentifier = "344D27B41FA9910800AE9F4B"
+            BuildableName = "Example.app"
+            BlueprintName = "Example"
             ReferencedContainer = "container:EventSource.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

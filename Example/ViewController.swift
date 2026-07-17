@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     private var events: [MessageEvent] = []
     private var eventSource: EventSource?
+    private var eventsTask: Task<Void, Never>?
+    private var stateTask: Task<Void, Never>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,30 +35,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func connect() {
+        eventsTask?.cancel()
+        stateTask?.cancel()
         eventSource?.close()
-        
+
         let config = Configuration(headers: ["Authorization": "Bearer DUMMY_TOKEN"], lastEventId: "123", retryTime: 5)
         let source = EventSource(url: URL(string: "http://localhost:3000/chat/stream")!, configuration: config)
         eventSource = source
         showReadyState()
-        
-        source.onOpen { [weak self] in
-            self?.showReadyState()
-        }
-        
-        source.onError { [weak self] error in
+
+        // callback API
+        source.onError { error in
             print(error.debugDescription)
-            self?.showReadyState()
         }
-        
-        source.onMessage { [weak self] message in
-            self?.events.insert(message, at: 0)
-            self?.tableView.reloadData()
+
+        // async/await API: events には全 type のイベントが流れる
+        eventsTask = Task { [weak self] in
+            for await event in source.events where event.type == "message" || event.type == "editMessage" {
+                self?.events.insert(event, at: 0)
+                self?.tableView.reloadData()
+            }
         }
-        
-        source.addEventListener("editMessage") { [weak self] event in
-            self?.events.insert(event, at: 0)
-            self?.tableView.reloadData()
+
+        stateTask = Task { [weak self] in
+            for await _ in source.stateChanges {
+                self?.showReadyState()
+            }
         }
     }
     

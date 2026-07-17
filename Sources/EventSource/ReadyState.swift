@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum ReadyState {
+public enum ReadyState: Sendable {
     case connecting
     case open
     case closed
