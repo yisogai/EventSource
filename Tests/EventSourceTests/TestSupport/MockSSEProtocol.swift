@@ -67,12 +67,26 @@ final class MockSSEProtocol: URLProtocol {
 
     /// Fails the most recently started still-open connection. Lets tests keep
     /// a `.stayOpen` stream alive until a condition holds, then kill it.
+    /// Note: on some iOS runtimes, error delivery through URLProtocol is
+    /// unreliable — prefer `finishActive()` when the test only needs the
+    /// connection to end (both paths schedule a reconnect).
     static func failActive(_ code: URLError.Code) {
         lock.lock()
         let instance = liveInstances.popLast()
         lock.unlock()
         guard let instance else { return }
         instance.client?.urlProtocol(instance, didFailWithError: URLError(code))
+    }
+
+    /// Ends the most recently started still-open connection like a normal
+    /// server-side EOF. Reliable across runtimes; triggers the same
+    /// reconnect-scheduling path as an error.
+    static func finishActive() {
+        lock.lock()
+        let instance = liveInstances.popLast()
+        lock.unlock()
+        guard let instance else { return }
+        instance.client?.urlProtocolDidFinishLoading(instance)
     }
 
     // MARK: - URLProtocol

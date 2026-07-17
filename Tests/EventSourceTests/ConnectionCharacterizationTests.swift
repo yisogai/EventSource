@@ -117,7 +117,7 @@ struct ConnectionCharacterizationTests {
         #expect(source.lastEventId == "55")
         #expect(MockSSEProtocol.requests.first?.value(forHTTPHeaderField: "Last-Event-ID") == nil)
 
-        MockSSEProtocol.failActive(.timedOut)
+        MockSSEProtocol.finishActive()
         #expect(await waitUntil { scheduler.pendingCount == 1 })
 
         MockSSEProtocol.enqueue(.sse())
@@ -133,7 +133,7 @@ struct ConnectionCharacterizationTests {
         defer { source.close() }
 
         #expect(await waitUntil { source.retryTime == 0.1 })
-        MockSSEProtocol.failActive(.timedOut)
+        MockSSEProtocol.finishActive()
         #expect(await waitUntil { scheduler.pendingCount == 1 })
         #expect(scheduler.delays == [0.1])
     }
@@ -223,7 +223,7 @@ struct ConnectionCharacterizationTests {
         #expect(await waitUntil { recorder.events.count == 2 })
         #expect(source.lastEventId == "")
 
-        MockSSEProtocol.failActive(.timedOut)
+        MockSSEProtocol.finishActive()
         #expect(await waitUntil { scheduler.pendingCount == 1 })
         MockSSEProtocol.enqueue(.sse())
         scheduler.fireNext()

@@ -97,7 +97,7 @@ extension ConnectionCharacterizationTests {
         let collector = StreamCollector(source.events)
         #expect(await waitUntil { collector.elements.count == 1 })
 
-        MockSSEProtocol.failActive(.timedOut)
+        MockSSEProtocol.finishActive()
         #expect(await waitUntil { scheduler.pendingCount == 1 })
         MockSSEProtocol.enqueue(.sse(chunks: ["data: after\n\n"]))
         scheduler.fireNext()
