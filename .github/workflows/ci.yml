@@ -45,13 +45,18 @@ jobs:
       - uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: latest-stable
-      - name: Test on iOS Simulator
-        run: >
-          xcodebuild test
-          -project EventSource.xcodeproj
-          -scheme EventSource
-          -destination 'platform=iOS Simulator,name=iPhone 16'
-          CODE_SIGNING_ALLOWED=NO
+      # The xcodeproj shadows the package and its auto-generated package
+      # scheme has no test action, so the package is tested from a directory
+      # of its own.
+      - name: Test on iOS Simulator (package only)
+        run: |
+          PKGDIR="$RUNNER_TEMP/pkg"
+          mkdir -p "$PKGDIR"
+          cp -R Package.swift Sources Tests "$PKGDIR/"
+          cd "$PKGDIR"
+          xcodebuild test -scheme EventSource \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            CODE_SIGNING_ALLOWED=NO
 
   platform-builds:
     name: build (${{ matrix.platform }})
