@@ -93,7 +93,9 @@ struct ConnectionCharacterizationTests {
 
     @Test func networkError_schedulesReconnectAfterRetryTime_andReportsError() async {
         MockSSEProtocol.reset()
-        MockSSEProtocol.enqueue(.sse(then: .error(.timedOut)))
+        // Pre-response failure: the reliable error-delivery path on iOS
+        // runtimes (a post-response injected error is sometimes dropped).
+        MockSSEProtocol.enqueue(MockSSEProtocol.Script(steps: [.error(.timedOut)]))
         let (source, recorder, scheduler) = makeSource()
         defer { source.close() }
 
@@ -140,7 +142,7 @@ struct ConnectionCharacterizationTests {
 
     @Test func close_preventsScheduledReconnect() async {
         MockSSEProtocol.reset()
-        MockSSEProtocol.enqueue(.sse(then: .error(.timedOut)))
+        MockSSEProtocol.enqueue(MockSSEProtocol.Script(steps: [.error(.timedOut)]))
         let (source, _, scheduler) = makeSource()
 
         #expect(await waitUntil { scheduler.pendingCount == 1 })
