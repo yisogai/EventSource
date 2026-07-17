@@ -8,10 +8,10 @@
 
 import Foundation
 
-public struct Configuration {
-    let headers: [String: String]
-    let lastEventId: String?
-    let retryTime: TimeInterval
+public struct Configuration: Sendable {
+    public let headers: [String: String]
+    public let lastEventId: String?
+    public let retryTime: TimeInterval
     
     public init(
         headers: [String: String] = [:],
